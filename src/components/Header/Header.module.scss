@@ -1,0 +1,60 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 37px 70px 37px 45px;
+  font-size: 12px;
+
+  &__logo {
+    width: 75px;
+    margin-right: 48px;
+  }
+
+  .contacts {
+    display: flex;
+    justify-content: space-between;
+
+    .location, .phone, {
+      display: flex;
+      align-items: center;
+
+      img {
+        height: 16px;
+        margin-right: 5px;
+      }
+    }
+
+    .location {
+      margin-right: 32px;
+    }
+  }
+
+  .menu {
+    display: flex;
+
+    &__list {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      width: 380px;
+      margin-right: 97px;
+
+      @media (max-width: 1440px) {
+        margin-right: 68px;
+      }
+
+      @media (max-width: 1240px) {
+        margin-right: 48px;
+      }
+    }
+
+    .order {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 26px;
+      }
+    }
+  }
+
+}
