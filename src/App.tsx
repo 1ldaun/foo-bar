@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import ConfidentialPage from "./views/ConfidentialPage/ConfidentialPage";
 import QuestionsPage from "./views/QuestionsPage/QuestionsPage";
 import PromoPage from "./views/PromoPage/PromoPage";
+import ContactsPage from "./views/ContactsPage/ContactsPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/conf" element={<ConfidentialPage />} />
         <Route path="/qa" element={<QuestionsPage />} />
         <Route path="/promo" element={<PromoPage />} />
+        <Route path="/contacts" element={<ContactsPage />} />
       </Routes>
     </BrowserRouter>
   );
