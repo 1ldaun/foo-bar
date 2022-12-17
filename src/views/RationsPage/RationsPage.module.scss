@@ -1,0 +1,117 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 150px 30px 150px;
+  width: calc(100% - 300px);
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
+
+  .rations {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+
+    @media (max-width: 1240px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .bottomBlock {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 57px;
+
+    &__left {
+      width: calc(50% - 60px);
+
+      h2 {
+        font-family: 'Bitter', sans-serif;
+        font-size: 36px;
+        font-weight: 500;
+        line-height: 43px;
+        margin: 0 0 25px 0;
+      }
+    }
+
+    &__right {
+      width: calc(50% - 60px);
+      background-color: #374318;
+      color: #F5F5F5;
+      padding: 25px;
+      border-radius: 10px;
+      position: relative;
+
+      .title {
+        width: 50%;
+        margin-bottom: 25px;
+
+        h3 {
+          font-family: 'Bitter', sans-serif;
+          font-size: 24px;
+          font-weight: 500;
+          line-height: 29px;
+          margin: 0;
+        }
+
+        p {
+          font-size: 12px;
+          line-height: 16px;
+          margin: 0;
+        }
+      }
+
+      .description {
+        width: 50%;
+        font-size: 12px;
+        line-height: 16px;
+        margin: 0 0 25px 0;
+      }
+
+      .order {
+        display: flex;
+        gap: 25px;
+
+        input {
+          height: fit-content;
+          padding: 10px 25px;
+          border-radius: 50px;
+          border: none;
+          cursor: pointer;
+        }
+
+        .price {
+          height: 35px;
+
+          h4 {
+            font-family: 'Bitter', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 24px;
+            margin: 0;
+          }
+
+          p {
+            font-size: 10px;
+            line-height: 14px;
+            margin: 0;
+          }
+        }
+      }
+
+      .background {
+        width: 250px;
+        position: absolute;
+        right: -10px;
+        top: 0;
+
+        @media (max-width: 1240px) {
+          top: -40px;
+          right: -40px;
+        }
+      }
+    }
+  }
+}

@@ -32,9 +32,9 @@
     display: flex;
 
     &__list {
-      list-style: none;
       display: flex;
       justify-content: space-between;
+      align-items: center;
       width: 380px;
       margin-right: 97px;
 
@@ -44,6 +44,15 @@
 
       @media (max-width: 1240px) {
         margin-right: 48px;
+      }
+
+      a {
+        color: #20231F;
+        text-decoration: none;
+
+        &:visited, &:active {
+          color: #20231F;
+        }
       }
     }
 

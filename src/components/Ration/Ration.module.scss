@@ -1,0 +1,105 @@
+.ration {
+  max-width: 350px;
+  box-sizing: border-box;
+  padding: 25px;
+  border: 0.5px solid #949494;
+  display: flex;
+  flex-direction: column;
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      margin: 0;
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    h3 {
+      margin: 5px 0 10px 0;
+      font-family: 'Bitter', sans-serif;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 29px;
+    }
+  }
+
+  &__params {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 20px;
+
+    .block {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+
+      .numbers {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .number {
+          height: 20px;
+          width: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 12px;
+          line-height: 16px;
+          cursor: pointer;
+
+          &.active {
+
+            background-color: #374318;
+            border-radius: 50%;
+            color: #fff;
+          }
+        }
+      }
+
+      .numberDesc {
+        margin: 0;
+        font-size: 12px;
+        line-height: 16px;
+      }
+    }
+
+    .price {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      h4 {
+        font-family: 'Bitter', sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 0.5px;
+        color: #374318;
+        margin: 25px 0 5px 0;
+      }
+
+      p {
+        font-size: 10px;
+        line-height: 14px;
+        color: #374318;
+        margin: 0;
+      }
+    }
+
+    input {
+      align-self: flex-end;
+      padding: 10px 25px;
+      background-color: #374318;
+      color: #F5F5F5;
+      border-radius: 50px;
+      border: none;
+      height: fit-content;
+      cursor: pointer;
+    }
+  }
+}

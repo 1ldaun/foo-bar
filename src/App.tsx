@@ -6,6 +6,7 @@ import ConfidentialPage from "./views/ConfidentialPage/ConfidentialPage";
 import QuestionsPage from "./views/QuestionsPage/QuestionsPage";
 import PromoPage from "./views/PromoPage/PromoPage";
 import ContactsPage from "./views/ContactsPage/ContactsPage";
+import RationsPage from "./views/RationsPage/RationsPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/qa" element={<QuestionsPage />} />
         <Route path="/promo" element={<PromoPage />} />
         <Route path="/contacts" element={<ContactsPage />} />
+        <Route path="/rations" element={<RationsPage />} />
       </Routes>
     </BrowserRouter>
   );
