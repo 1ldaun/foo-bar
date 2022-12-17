@@ -1,0 +1,52 @@
+.customCheckbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  margin: 4px;
+
+  & + label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+
+    &:before {
+      content: "";
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 1px solid #adb5bd;
+      border-radius: 50%;
+      margin-right: 13px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 11px 8px;
+      cursor: pointer;
+    }
+  }
+
+  &:checked + label:before {
+    border-color: #374318;
+    background-color: #374318;
+    background-image: url("../../assets/img/checked.svg");
+  }
+
+  &:not(:disabled):not(:checked) + label:hover::before {
+    border-color: #374318;
+  }
+
+  &:not(:disabled):active + label::before {
+    background-color: #374318;
+    border-color: #374318;
+  }
+
+  &:disabled + label::before {
+    background-color: #374318;
+  }
+}
+
+.label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 16px;
+}

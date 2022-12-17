@@ -7,6 +7,7 @@ import QuestionsPage from "./views/QuestionsPage/QuestionsPage";
 import PromoPage from "./views/PromoPage/PromoPage";
 import ContactsPage from "./views/ContactsPage/ContactsPage";
 import RationsPage from "./views/RationsPage/RationsPage";
+import CartPage from "./views/CartPage/CartPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/promo" element={<PromoPage />} />
         <Route path="/contacts" element={<ContactsPage />} />
         <Route path="/rations" element={<RationsPage />} />
+        <Route path="/cart" element={<CartPage />} />
       </Routes>
     </BrowserRouter>
   );
