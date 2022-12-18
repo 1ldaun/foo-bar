@@ -1,13 +1,13 @@
 import React from "react";
 import S from "./List.module.scss";
 
-export interface ListItem {
-  title: string;
-  body: string;
+export interface qaInterface {
+  question: string;
+  answer: string;
 }
 
 export interface ListProps {
-  items: ListItem[];
+  items: qaInterface[];
 }
 
 export const List = ({ items }: ListProps) => {
@@ -15,8 +15,8 @@ export const List = ({ items }: ListProps) => {
     <ul className={S.wrapper}>
       {items.map((item, index) => (
         <li key={index} className={S.item}>
-          <h3 className={S.item__header}>{item.title}</h3>
-          <p className={S.item__body}>{item.body}</p>
+          <h3 className={S.item__header}>{item.question}</h3>
+          <p className={S.item__body}>{item.answer}</p>
         </li>
       ))}
     </ul>

@@ -4,6 +4,7 @@ import cx from "classnames";
 import { CartContext } from "../../App";
 
 export interface RationProps {
+  id: string;
   title: string;
   description: string;
   calories: number;

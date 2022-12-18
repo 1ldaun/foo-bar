@@ -24,16 +24,24 @@
     margin: 0;
   }
 
-  input {
-    height: 42px;
-    width: 255px;
-    border: none;
-    border-radius: 50px;
-    padding: 10px 40px 10px 40px;
-    background-color: #374318;
-    color: #fff;
+  .button {
+    display: inline-block;
+    width: fit-content;
+    height: fit-content;
     margin-top: 50px;
+
+    input {
+      height: 42px;
+      width: 255px;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 40px 10px 40px;
+      background-color: #374318;
+      color: #fff;
+      cursor: pointer;
+    }
   }
+
 
   .background {
     width: 550px;

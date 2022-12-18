@@ -11,6 +11,7 @@ import CartPage from "./views/CartPage/CartPage";
 import { RationInterface } from "./interfaces/Ration.interface";
 
 export const CartContext = createContext<any>(null);
+export const baseURL = "http://91.227.18.83:3000/";
 
 function App() {
   const [cartItems, setCartItems] = useState<RationInterface[]>([]);

@@ -3,6 +3,7 @@ import S from "./MainPage.module.scss";
 import food1 from "../../assets/img/food1.png";
 import food2 from "../../assets/img/food2.png";
 import food3 from "../../assets/img/food3.png";
+import { Link } from "react-router-dom";
 
 const MainPage = () => {
   return (
@@ -13,7 +14,9 @@ const MainPage = () => {
         <br />
         Теперь за ваше питание будут отвечать профессионалы
       </p>
-      <input type="button" value="Перейти к выборy &#8594;" />
+      <Link to="/rations" className={S.button}>
+        <input type="button" value="Перейти к выборy &#8594;" />
+      </Link>
 
       <div className={S.background}>
         <img

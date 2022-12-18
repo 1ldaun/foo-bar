@@ -13,7 +13,9 @@ const Header = () => {
   return (
     <div className={S.header}>
       <div className={S.contacts}>
-        <img className={S.header__logo} src={logo} alt="logo" />
+        <Link to="/">
+          <img className={S.header__logo} src={logo} alt="logo" />
+        </Link>
         <div className={S.location}>
           <img src={location} alt="location" />
           <p>Санкт-Петербург</p>
