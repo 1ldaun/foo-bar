@@ -2,14 +2,15 @@ import React from "react";
 import S from "./RationsPage.module.scss";
 import Ration from "../../components/Ration/Ration";
 import backImg from "../../assets/img/trial.svg";
+import { rations } from "../../assets/mocks/rations";
 
 const RationsPage = () => {
   return (
     <div className={S.wrapper}>
       <div className={S.rations}>
-        <Ration />
-        <Ration />
-        <Ration />
+        {rations.map((ration) => (
+          <Ration {...ration} />
+        ))}
       </div>
       <div className={S.bottomBlock}>
         <div className={S.bottomBlock__left}>

@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import S from "./CartPage.module.scss";
 import CustomCheckbox from "../../components/CustomCheckbox/CustomCheckbox";
 import CartItem from "../../components/CartItem/CartItem";
+import { CartContext } from "../../App";
+import { RationInterface } from "../../interfaces/Ration.interface";
 
 const CartPage = () => {
+  const { getCartItems } = useContext(CartContext);
+
   return (
     <div className={S.wrapper}>
       <div className={S.order}>
         <h2 className={S.order__title}>Состав заказа</h2>
-        <CartItem />
+        {getCartItems().map((cartItem: RationInterface) => (
+          <CartItem {...cartItem} />
+        ))}
       </div>
       <div className={S.form}>
         <p>Для оформления заказа заполните все обязательные поля</p>
@@ -53,7 +59,15 @@ const CartPage = () => {
         </CustomCheckbox>
         <CustomCheckbox>Списать накопленные бонусы при оплате</CustomCheckbox>
         <div className={S.makeOrder}>
-          <h2>ИТОГ 24500 ₽ </h2>
+          <h2>
+            ИТОГ{" "}
+            {getCartItems().reduce(
+              (accumulator: number, item: RationInterface) =>
+                accumulator + item.price,
+              0
+            )}{" "}
+            ₽{" "}
+          </h2>
           <input type="button" value="Оформить заказ" />
         </div>
       </div>

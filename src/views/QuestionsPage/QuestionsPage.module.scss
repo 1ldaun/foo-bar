@@ -17,10 +17,12 @@
       text-align: center;
       color: #20231F;
       width: 350px;
+      cursor: pointer;
 
       &.active {
         color: #374318;
         text-decoration: underline;
+        cursor: auto;
       }
     }
   }

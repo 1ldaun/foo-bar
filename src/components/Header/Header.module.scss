@@ -59,9 +59,25 @@
     .order {
       display: flex;
       align-items: center;
+      position: relative;
 
       img {
         width: 26px;
+      }
+
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 8px;
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        background-color: #374318;
+        border-radius: 50%;
+        color: #F5F5F5;
+        bottom: 0;
+        right: -3px;
       }
     }
   }

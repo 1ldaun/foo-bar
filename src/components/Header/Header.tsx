@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import S from "./Header.module.scss";
 import logo from "../../assets/img/logo.svg";
 import location from "../../assets/img/location.svg";
 import phone from "../../assets/img/phone.svg";
 import order from "../../assets/img/order.svg";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../App";
 
 const Header = () => {
+  const { getCartItems } = useContext(CartContext);
+
   return (
     <div className={S.header}>
       <div className={S.contacts}>
@@ -28,9 +31,10 @@ const Header = () => {
           <Link to="/contacts">Контакты</Link>
           <Link to="/promo">Акции</Link>
         </nav>
-        <div className={S.order}>
+        <Link to="/cart" className={S.order}>
           <img src={order} alt="order" />
-        </div>
+          {!!getCartItems().length && <div>{getCartItems().length}</div>}
+        </Link>
       </div>
     </div>
   );

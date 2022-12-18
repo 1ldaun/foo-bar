@@ -1,6 +1,6 @@
 import React from "react";
 import S from "./ConfidentialPage.module.scss";
-import { articlesInfo } from "../../assets/content/articles";
+import { articlesInfo } from "../../assets/mocks/articles";
 import { ArticleInterface } from "../../interfaces/Article.interface";
 
 const ConfidentialPage = () => {
