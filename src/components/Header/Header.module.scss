@@ -50,6 +50,12 @@
         color: #20231F;
         text-decoration: none;
 
+        &.active {
+          font-size: 14px;
+          font-weight: 600;
+          text-decoration: underline;
+        }
+
         &:visited, &:active {
           color: #20231F;
         }

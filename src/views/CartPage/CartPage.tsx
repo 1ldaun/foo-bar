@@ -1,12 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import S from "./CartPage.module.scss";
 import CustomCheckbox from "../../components/CustomCheckbox/CustomCheckbox";
 import CartItem from "../../components/CartItem/CartItem";
 import { CartContext } from "../../App";
 import { RationInterface } from "../../interfaces/Ration.interface";
+import { Link } from "react-router-dom";
+import qrImg from "../../assets/img/qr.jpg";
+import cx from "classnames";
 
 const CartPage = () => {
   const { getCartItems } = useContext(CartContext);
+  const [qrActive, setQrActive] = useState(false);
 
   return (
     <div className={S.wrapper}>
@@ -53,9 +57,9 @@ const CartPage = () => {
         </div>
         <CustomCheckbox>
           Я согласен (-на) с &nbsp;
-          <a href="/conf" target="_blank" className={S.link}>
+          <Link to="/conf" target="_blank" className={S.link}>
             политикой обработки персональных данных
-          </a>
+          </Link>
         </CustomCheckbox>
         <CustomCheckbox>Списать накопленные бонусы при оплате</CustomCheckbox>
         <div className={S.makeOrder}>
@@ -68,9 +72,19 @@ const CartPage = () => {
             )}{" "}
             ₽{" "}
           </h2>
-          <input type="button" value="Оформить заказ" />
+          <input
+            type="button"
+            value="Оформить заказ"
+            onClick={() => setQrActive(true)}
+          />
         </div>
       </div>
+      <img
+        src={qrImg}
+        alt="qr"
+        className={cx(S.qr, qrActive ? S.active : "")}
+        onClick={() => setQrActive(false)}
+      />
     </div>
   );
 };

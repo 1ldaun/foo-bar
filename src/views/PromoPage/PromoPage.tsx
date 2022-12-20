@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import S from "./PromoPage.module.scss";
 import certificateImage from "../../assets/img/certificate.png";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { baseURL } from "../../App";
+import cx from "classnames";
+
+const DEFAULT_BUTTON_TEXT = "Заказать сертификат";
+const SUCCESS_BUTTON_TEXT = "С вами скоро свяжутся!";
 
 const PromoPage = () => {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [buttonText, setButtonText] = useState(DEFAULT_BUTTON_TEXT);
+
+  const getCertificate = () => {
+    if (name.length && phone.length) {
+      axios.post(baseURL + "certificate", { name, phone }).then(() => {
+        setButtonText(SUCCESS_BUTTON_TEXT);
+        setPhone("");
+        setName("");
+      });
+    }
+  };
+
   return (
     <div className={S.wrapper}>
       <ul className={S.cards}>
@@ -96,23 +117,37 @@ const PromoPage = () => {
           <form className={S.callback}>
             <div className={S.callback__block}>
               <label>ФИО</label>
-              <input type="text" className={S.nameInput} />
+              <input
+                type="text"
+                className={S.nameInput}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
             </div>
             <div className={S.callback__block}>
               <label>Телефон</label>
-              <input type="text" className={S.nameInput} />
+              <input
+                type="text"
+                className={S.nameInput}
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
             </div>
           </form>
           <p className={S.pConf}>
             Нажимая на кнопку “Заказать сертификат” вы соглашаетесь с{" "}
-            <a href="/conf" target="_blank">
+            <Link to="/conf" target="_blank">
               политикой обработки персональных данных
-            </a>
+            </Link>
           </p>
           <input
             type="submit"
-            className={S.callbackButton}
-            value="Заказать сертификат"
+            className={cx(
+              S.callbackButton,
+              buttonText === SUCCESS_BUTTON_TEXT ? S.active : ""
+            )}
+            onClick={getCertificate}
+            value={buttonText}
           />
         </div>
       </div>

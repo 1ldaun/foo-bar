@@ -7,6 +7,8 @@ import ytImg from "../../assets/img/yt.svg";
 import axios from "axios";
 import { baseURL } from "../../App";
 import { contactsMock } from "../../assets/mocks/contacts";
+import { Link } from "react-router-dom";
+import cx from "classnames";
 
 export interface addressInterface {
   city: string;
@@ -21,8 +23,26 @@ export interface contactsInterface {
   schedule: string;
 }
 
+const DEFAULT_BUTTON_TEXT = "Задать вопрос";
+const SUCCESS_BUTTON_TEXT = "Ваш вопрос успешно отправлен!";
+
 const ContactsPage = () => {
   const [contacts, setContacts] = useState<contactsInterface>(contactsMock);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [question, setQuestion] = useState("");
+  const [buttonText, setButtonText] = useState(DEFAULT_BUTTON_TEXT);
+
+  const getCertificate = () => {
+    if (name.length && phone.length) {
+      axios.post(baseURL + "certificate", { name, phone }).then(() => {
+        setButtonText(SUCCESS_BUTTON_TEXT);
+        setPhone("");
+        setName("");
+        setQuestion("");
+      });
+    }
+  };
 
   useEffect(() => {
     axios
@@ -89,27 +109,44 @@ const ContactsPage = () => {
           <form className={S.callback}>
             <div className={S.callback__block}>
               <label>ФИО</label>
-              <input type="text" className={S.nameInput} />
+              <input
+                type="text"
+                className={S.nameInput}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
             </div>
             <div className={S.callback__block}>
               <label>Телефон</label>
-              <input type="text" className={S.nameInput} />
+              <input
+                type="text"
+                className={S.nameInput}
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
             </div>
           </form>
           <div className={S.callback__textArea}>
             <label>Ваш вопрос</label>
-            <textarea />
+            <textarea
+              value={question}
+              onChange={(e) => setQuestion(e.target.value)}
+            />
           </div>
           <p className={S.pConf}>
             Нажимая на кнопку “Задать вопрос” вы соглашаетесь с{" "}
-            <a href="/conf" target="_blank">
+            <Link to="/conf" target="_blank">
               политикой обработки персональных данных
-            </a>
+            </Link>
           </p>
           <input
             type="submit"
-            className={S.callbackButton}
-            value="Задать вопрос"
+            className={cx(
+              S.callbackButton,
+              buttonText === SUCCESS_BUTTON_TEXT ? S.active : ""
+            )}
+            value={buttonText}
+            onClick={getCertificate}
           />
         </div>
       </div>

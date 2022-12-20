@@ -4,7 +4,7 @@ import logo from "../../assets/img/logo.svg";
 import location from "../../assets/img/location.svg";
 import phone from "../../assets/img/phone.svg";
 import order from "../../assets/img/order.svg";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { CartContext } from "../../App";
 
 const Header = () => {
@@ -13,9 +13,9 @@ const Header = () => {
   return (
     <div className={S.header}>
       <div className={S.contacts}>
-        <Link to="/">
+        <NavLink to="/">
           <img className={S.header__logo} src={logo} alt="logo" />
-        </Link>
+        </NavLink>
         <div className={S.location}>
           <img src={location} alt="location" />
           <p>Санкт-Петербург</p>
@@ -27,11 +27,36 @@ const Header = () => {
       </div>
       <div className={S.menu}>
         <nav className={S.menu__list}>
-          <Link to="/">О компании</Link>
-          <Link to="/rations">Рационы</Link>
-          <Link to="/qa">Вопросы</Link>
-          <Link to="/contacts">Контакты</Link>
-          <Link to="/promo">Акции</Link>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? S.active : "")}
+          >
+            О компании
+          </NavLink>
+          <NavLink
+            to="/rations"
+            className={({ isActive }) => (isActive ? S.active : "")}
+          >
+            Рационы
+          </NavLink>
+          <NavLink
+            to="/qa"
+            className={({ isActive }) => (isActive ? S.active : "")}
+          >
+            Вопросы
+          </NavLink>
+          <NavLink
+            to="/contacts"
+            className={({ isActive }) => (isActive ? S.active : "")}
+          >
+            Контакты
+          </NavLink>
+          <NavLink
+            to="/promo"
+            className={({ isActive }) => (isActive ? S.active : "")}
+          >
+            Акции
+          </NavLink>
         </nav>
         <Link to="/cart" className={S.order}>
           <img src={order} alt="order" />

@@ -1,9 +1,10 @@
 .wrapper {
   display: flex;
   justify-content: space-between;
-  padding: 0 150px;
+  padding: 0 150px 100px 150px;
   width: calc(100% - 300px);
   overflow-x: hidden;
+  position: relative;
 
   .order {
     width: calc(50% - 15px);
@@ -164,7 +165,20 @@
         color: #F5F5F5;
         border: none;
         border-radius: 50px;
+        cursor: pointer;
       }
+    }
+  }
+
+  .qr {
+    display: none;
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    height: 300px;
+
+    &.active {
+      display: inline-block;
     }
   }
 }

@@ -1,10 +1,8 @@
 module.exports = {
-  preset: "ts-jest/presets/js-with-ts",
+  preset: "ts-jest",
   testEnvironment: "node",
-  globals: {
-    "ts-jest": {
-      tsconfig: "<rootDir>/test/tsconfig.json",
-    },
+  transform: {
+    "^.+\\.ts?$": "ts-jest",
   },
-  transformIgnorePatterns: ["node_modules/(?!troublesome-dependency/.*)"],
+  transformIgnorePatterns: ["<rootDir>/node_modules/"],
 };
