@@ -135,9 +135,7 @@ const ContactsPage = () => {
           </div>
           <p className={S.pConf}>
             Нажимая на кнопку “Задать вопрос” вы соглашаетесь с{" "}
-            <Link to="/conf" target="_blank">
-              политикой обработки персональных данных
-            </Link>
+            <Link to="/conf">политикой обработки персональных данных</Link>
           </p>
           <input
             type="submit"

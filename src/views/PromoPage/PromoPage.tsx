@@ -136,9 +136,7 @@ const PromoPage = () => {
           </form>
           <p className={S.pConf}>
             Нажимая на кнопку “Заказать сертификат” вы соглашаетесь с{" "}
-            <Link to="/conf" target="_blank">
-              политикой обработки персональных данных
-            </Link>
+            <Link to="/conf">политикой обработки персональных данных</Link>
           </p>
           <input
             type="submit"

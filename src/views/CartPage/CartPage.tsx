@@ -57,7 +57,7 @@ const CartPage = () => {
         </div>
         <CustomCheckbox>
           Я согласен (-на) с &nbsp;
-          <Link to="/conf" target="_blank" className={S.link}>
+          <Link to="/conf" className={S.link}>
             политикой обработки персональных данных
           </Link>
         </CustomCheckbox>
